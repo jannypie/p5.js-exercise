@@ -29,6 +29,7 @@ function draw() {
   // Example from p5 docs
   // Adds circles with white or black fill
   // coords based on mouseX, mouseY
+
   if (mouseIsPressed) {
     fill(0);
   } else {
