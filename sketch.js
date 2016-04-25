@@ -36,4 +36,53 @@ function draw() {
     fill(255);
   }
   ellipse(mouseX, mouseY, 80, 80);
+
+  // Individual points
+  // The two parameters of the point() method each specify
+// coordinates.
+// The first parameter is the x-coordinate and the second is the Y
+stroke(255);
+point(width * 0.5, height * 0.5);
+point(width * 0.5, height * 0.25);
+
+    // No loop stops the constant refresh of draw
+    noLoop();
+}
+
+
+function mousePressed() {
+  redraw();
+}
+
+
+// Draw target
+function draw() {
+  drawTarget(width*0.25, height*0.4, 200, 4);
+  drawTarget(width*0.5, height*0.5, 300, 10);
+  drawTarget(width*0.75, height*0.3, 120, 6);
+}
+
+function drawTarget(xloc, yloc, size, num) {
+  grayvalues = 255/num;
+  steps = size/num;
+  for (i = 0; i < num; i++) {
+    fill(i*grayvalues);
+    ellipse(xloc, yloc, size - i*steps, size - i*steps);
+  }
+}
+
+// Recursion
+function draw() {
+  drawCircle(width/2, 280, 6);
+}
+
+function drawCircle(x, radius, level) {
+  var tt = 126 * level/4.0;
+  fill(tt);
+  ellipse(x, height/2, radius*2, radius*2);
+  if(level > 1) {
+    level = level - 1;
+    drawCircle(x - radius/2, radius/2, level);
+    drawCircle(x + radius/2, radius/2, level);
+  }
 }
